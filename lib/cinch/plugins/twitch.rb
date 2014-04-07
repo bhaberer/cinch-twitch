@@ -12,7 +12,7 @@ module Cinch::Plugins
     def initialize(*args)
       super
       @streamid = config[:streamid]
-      @currently_live = false # live?
+      @currently_live = live?
     end
 
     def execute(m)
