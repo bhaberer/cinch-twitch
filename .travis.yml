@@ -1,0 +1,45 @@
+---
+language: ruby
+rvm:
+  - 2.1.0
+  - 2.0.0
+  - 1.9.3
+  - 1.9.2
+  - 1.8.7
+  - jruby-18mode
+  - jruby-19mode
+  - rbx
+  - ruby-head
+  - jruby-head
+  - ree
+matrix:
+  allow_failures:
+    - rvm: 1.8.7
+    - rvm: ree
+    - rvm: jruby-18mode
+    - rvm: jruby-19mode
+    - rvm: jruby-head
+  fast_finish: true
+env:
+  global:
+    - JRUBY_OPTS=-Xcext.enabled=true
+    - secure: ! 'Yz/VAtfbXwk6JD/2/z6c2SGygNGELrF0dlZ/M5nOrDiKNm8lxpC6w19esGbB
+
+      CYt8UtqylceJ2UxYngHLVH48oPb+A5fv21/jDJMqHeO/N4WjwQUOzBZXfZG6
+
+      lpugXIsT9Q10q0AsXry65YuzZtpY7VkVQUNSBYte7jTcWbLmIWQ='
+    - secure: ! 'CbdMyExVnyHfPQ+scSky8JIlqK0dU7idBrtvipQIA2dGfIIj0lzuUDEqvtAv
+
+      +9A7Mw01ddxQ/tXdixHDBNOhp9Ddz+4/0OSMyIb/5uFy+l7b2B2K4A4R5crI
+
+      RBc5W5rgzRLnDD7HL4BZMRDpx3sJRLcIH9S4bclXyjkzQ7yzVDc='
+    - secure: ! 'Pl14JkhwMe+HHi1Ht0znd0+TnSzdSGvtG4pX8+oSWuIyfTd3xfoj7Pf1S4P/
+
+      7SVnixq2gQh13OaL4Tj2sR6+AHz6n+onareFoKkZPSJuDRh6yXFfvKIdx4MV
+
+      l5lIJbSI4icPWOMk6ObMCzIb/m3m4Z/BG3O5E/6AcJDQa7rspL0='
+    - secure: ! 'Xrh52mNuRCf1kJHpZctrz3gfBZQ/rlC+qz/MlvZ9L7sm1CFSIoJdizrOYawt
+
+      cKOyLfsLrcnJqGbq0s++cSQ2QDggEGxtVkMXxIw7dBFn2icZsKsTN5rh28UR
+
+      W2TakLhFB8f+LQ+/P9PvV1wlSOJQRFItLjjOtcEoQVLi51Pwuzw='
