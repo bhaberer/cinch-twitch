@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Cinch::Plugins::TwitchTV::VERSION
   spec.authors       = ['Brian Haberer']
   spec.email         = ['bhaberer@gmail.com']
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Cinch Plugin for monitoring TwitchTV streams}
+  spec.summary       = %q{Cinch TwitchTV Plugin}
   spec.homepage      = 'https://github.com/bhaberer/cinch-twitch'
   spec.license       = 'MIT'
 
