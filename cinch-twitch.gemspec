@@ -5,7 +5,7 @@ require 'cinch/plugins/twitch/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'cinch-twitch'
-  spec.version       = Cinch::Plugins::Twitch::VERSION
+  spec.version       = Cinch::Plugins::TwitchTV::VERSION
   spec.authors       = ['Brian Haberer']
   spec.email         = ['bhaberer@gmail.com']
   spec.summary       = %q{TODO: Write a short summary. Required.}
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency              'cinch',           '~> 2.0.12'
   spec.add_dependency              'twitch'
+  spec.add_dependency              'time-lord'
 end
