@@ -20,8 +20,10 @@ module Cinch::Plugins
     end
 
     def live_check
+      debug "Stream is currently [#{live? 'Online' : 'Offline'}]"
       return if @currently_live == live?
-      @bot.channels.first.msg status_message
+      debug 'Stream status changed'
+      @bot.channels.first.msg status_message if live?
       @currently_live = live?
     end
 
@@ -49,17 +51,17 @@ module Cinch::Plugins
       info = acquire_stream_info
       [info[:channel_name],
       'is now',
-      "#{live? ? 'Online at' : 'Offline.'}",
-      "#{live? ? info[:url] : nil}",].join(' ')
+      "#{live? ? "Online at #{info[:url]}" : 'Offline.'}"].join(' ')
     end
 
     def acquire_stream_info
-      @stream = Twitch.new.getStream(@streamid)[:body]['stream']
+      stream = Twitch.new.getStream(@streamid)[:body]['stream']
+      return nil if stream.nil?
 
-      { viewers: @stream['viewers'],
-        channel_name: @stream['channel']['display_name'],
-        started_at: Time.parse(@stream['channel']['updated_at']),
-        url: @stream['channel']['url'] }
+      { viewers: stream['viewers'],
+        channel_name: stream['channel']['display_name'],
+        started_at: Time.parse(stream['channel']['updated_at']),
+        url: stream['channel']['url'] }
     end
   end
 end
