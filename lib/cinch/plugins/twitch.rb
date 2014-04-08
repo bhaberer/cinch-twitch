@@ -24,7 +24,7 @@ module Cinch::Plugins
         debug "Stream is currently [#{live? ? 'Online' : 'Offline'}]"
         return
       end
-      debug "Stream status changed to [#{live? 'Online' : 'Offline'}]"
+      debug "Stream status changed to [#{live? ? 'Online' : 'Offline'}]"
       @bot.channels.first.msg(online_message) if live?
       @currently_live = live?
     end
