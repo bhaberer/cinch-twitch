@@ -40,7 +40,7 @@ module Cinch::Plugins
     end
 
     def stream_message
-      return 'Steam is offline' if offline?
+      return 'Stream is offline' if offline?
 
       info = acquire_stream_info
       [info[:channel_name],
