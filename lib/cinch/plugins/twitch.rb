@@ -20,10 +20,12 @@ module Cinch::Plugins
     end
 
     def live_check
-      debug "Stream is currently [#{live? ? 'Online' : 'Offline'}]"
-      return if @currently_live == live?
-      debug 'Stream status changed'
-      @bot.channels.first.msg status_message if live?
+      if @currently_live == live?
+        debug "Stream is currently [#{live? ? 'Online' : 'Offline'}]"
+        return
+      end
+      debug "Stream status changed to [#{live? 'Online' : 'Offline'}]"
+      @bot.channels.first.msg(online_message) if live?
       @currently_live = live?
     end
 
@@ -47,11 +49,9 @@ module Cinch::Plugins
         'listen along at', info[:url]].join(' ')
     end
 
-    def status_message
+    def online_message
       info = acquire_stream_info
-      [info[:channel_name],
-      'is now',
-      "#{live? ? "Online at #{info[:url]}" : 'Offline.'}"].join(' ')
+      "#{info[:channel_name]} is now Online at #{info[:url]}" unless info.nil?
     end
 
     def acquire_stream_info
